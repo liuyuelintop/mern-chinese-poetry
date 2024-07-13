@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import Navbar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
+import ScrollToBottom from './components/Scroll/ScrollToBottom';
+import ScrollToUp from './components/Scroll/ScrollToUp';
 function App() {
   return (
     <Router>
@@ -15,6 +16,8 @@ function App() {
           <Footer />
         </div>
       </div>
+      <ScrollToUp />
+      <ScrollToBottom />
     </Router>
   )
 }
