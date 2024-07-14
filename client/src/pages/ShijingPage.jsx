@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { fetchSong300Poems } from '../api/poem.js';
+import { fetchShijing } from '../api/poem.js';
 import { useQuery } from 'react-query';
 import PoemCard from '../components/Poem/PoemCard.jsx';
 import Pagination from '../components/Pagination.jsx';
 
-const SongPoetryPage = () => {
+const ShijingPage = () => {
     const [page, setPage] = useState(1);
     const limit = 10;
 
-    const { data, error, isLoading } = useQuery(["song-300-poems", page], () => fetchSong300Poems(page, limit), {
+    const { data, error, isLoading } = useQuery(["shijing", page], () => fetchShijing(page, limit), {
         keepPreviousData: true,
     });
 
@@ -28,10 +28,10 @@ const SongPoetryPage = () => {
 
     return (
         <div className='flex flex-col mx-auto justify-center items-center'>
-            <h1 className='mt-10 text-bold text-neutral-900 text-2xl lg:text-4xl'>宋词三百首</h1>
+            <h1 className='mt-10 text-bold text-neutral-900 text-2xl lg:text-4xl'>诗经</h1>
             <div className="flex flex-col items-center w-full max-w-2xl justify-center min-h-screen py-4">
                 {poems.map((poem) => (
-                    <PoemCard key={poem._id} poem={poem} type={"poetry"} className="mb-4" />
+                    <PoemCard key={poem._id} poem={poem} type={"shijing"} className="mb-4" />
                 ))}
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
@@ -39,4 +39,4 @@ const SongPoetryPage = () => {
     );
 }
 
-export default SongPoetryPage;
+export default ShijingPage;

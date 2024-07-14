@@ -8,16 +8,18 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 import TangPoetryPage from './pages/TangPoetryPage';
 import SongPoetryPage from './pages/SongPoetryPage';
+import ShijingPage from './pages/ShijingPage';
 function App() {
   return (
     <Router>
       <Navbar />
       <div className="flex flex-col min-h-screen">
-        <div className="flex-grow mt-16">
+        <div className="flex-grow mt-20">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tang" element={<TangPoetryPage />} />
             <Route path="/song" element={<SongPoetryPage />} />
+            <Route path="/shi_jing" element={<ShijingPage />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
