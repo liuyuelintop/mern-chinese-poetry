@@ -32,6 +32,14 @@ export const fetchTang300Poems = async (page = 1, limit = 10) => {
   return fetchData("poems/tang-300", { page, limit });
 };
 
+// 获取宋词三百首的函数，可以指定页码和每页数量
+// @param {number} page - 页码，默认为 1
+// @param {number} limit - 每页显示的数量，默认为 10
+// @returns {Promise<object>} - 返回包含宋词三百首数据的 Promise 对象
+export const fetchSong300Poems = async (page = 1, limit = 10) => {
+  return fetchData("poems/song-300", { page, limit });
+};
+
 // 获取随机诗词的函数
 // @returns {Promise<object>} - 返回包含随机诗词数据的 Promise 对象
 export const fetchRandomPoems = async () => {

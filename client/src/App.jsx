@@ -7,6 +7,7 @@ import ScrollToUp from './components/Scroll/ScrollToUp';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
 import TangPoetryPage from './pages/TangPoetryPage';
+import SongPoetryPage from './pages/SongPoetryPage';
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tang" element={<TangPoetryPage />} />
+            <Route path="/song" element={<SongPoetryPage />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
