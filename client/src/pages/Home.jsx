@@ -1,7 +1,7 @@
 import { fetchRandomPoems } from '../api/poem.js'
 import { useQuery } from 'react-query'
 import PoemCard from '../components/Poem/PoemCard.jsx';
-export const Home = () => {
+const Home = () => {
     const { data, error, isLoading } = useQuery(["random-poems"], fetchRandomPoems);
     if (isLoading) {
         return <div>Loading...</div>
@@ -23,3 +23,4 @@ export const Home = () => {
 
     )
 }
+export default Home;
