@@ -54,6 +54,20 @@ export const fetchRandomPoems = async () => {
   return fetchData("poems/random-poems");
 };
 
+// 搜索诗词的函数，可以指定查询参数
+// @param {object} params - 查询参数对象，包括作者、标题、标签、朝代、页码和每页数量
+// @returns {Promise<object>} - 返回包含诗词数据的 Promise 对象
+export const searchPoetry = async (params) => {
+  return fetchData("search/poetry", params);
+};
+
+// 搜索诗经的函数，可以指定查询参数
+// @param {object} params - 查询参数对象，包括标题、章节、部分、页码和每页数量
+// @returns {Promise<object>} - 返回包含诗经数据的 Promise 对象
+export const searchShijing = async (params) => {
+  return fetchData("search/shijing", params);
+};
+
 // 点赞诗词的函数
 // @param {string} id - 诗词的唯一标识符
 // @returns {Promise<object>} - 返回包含点赞结果的 Promise 对象
