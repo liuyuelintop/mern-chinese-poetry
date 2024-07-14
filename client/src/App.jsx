@@ -6,6 +6,7 @@ import ScrollToBottom from './components/Scroll/ScrollToBottom';
 import ScrollToUp from './components/Scroll/ScrollToUp';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
+import TangPoetryPage from './pages/TangPoetryPage';
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <div className="flex-grow mt-16">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/tang" element={<TangPoetryPage />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
