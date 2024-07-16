@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { fetchSong300Poems } from '../api/poem.js';
 import { useQuery } from 'react-query';
 import PoemCard from '../components/Poem/PoemCard.jsx';
-import Pagination from '../components/Pagination.jsx';
+import Pagination from '../components/Pagination/Pagination.jsx';
 
 const SongPoetryPage = () => {
     const [page, setPage] = useState(1);

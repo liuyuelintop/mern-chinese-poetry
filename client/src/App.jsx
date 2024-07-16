@@ -9,7 +9,9 @@ import NotFound from './pages/NotFound';
 import TangPoetryPage from './pages/TangPoetryPage';
 import SongPoetryPage from './pages/SongPoetryPage';
 import ShijingPage from './pages/ShijingPage';
-import SearchPage from './pages/SearchPage';
+import PoetrySearch from './pages/Search/Poetry/PoetrySearch';
+import ShijingSearch from './pages/Search/Shijing/ShijingSearch';
+import SearchPage from './pages/Search/SearchPage';
 function App() {
   return (
     <Router>
@@ -22,6 +24,8 @@ function App() {
             <Route path="/song" element={<SongPoetryPage />} />
             <Route path="/shi_jing" element={<ShijingPage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/search-poetry" element={<PoetrySearch />} />
+            <Route path="/search-shijing" element={<ShijingSearch />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

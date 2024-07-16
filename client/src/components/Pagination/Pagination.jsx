@@ -1,37 +1,39 @@
+import React, { useCallback, useMemo } from 'react';
+
+const generatePageNumbers = (currentPage, totalPages) => {
+    const pageNumbers = [];
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
+
+    if (startPage > 1) {
+        pageNumbers.push(1);
+        if (startPage > 2) {
+            pageNumbers.push('...');
+        }
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(i);
+    }
+
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+            pageNumbers.push('...');
+        }
+        pageNumbers.push(totalPages);
+    }
+
+    return pageNumbers;
+};
+
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-    const handlePageChange = (page) => {
+    const handlePageChange = useCallback((page) => {
         if (page >= 1 && page <= totalPages) {
             onPageChange(page);
         }
-    };
+    }, [onPageChange, totalPages]);
 
-    const generatePageNumbers = () => {
-        const pageNumbers = [];
-        let startPage = Math.max(1, currentPage - 2);
-        let endPage = Math.min(totalPages, currentPage + 2);
-
-        if (startPage > 1) {
-            pageNumbers.push(1);
-            if (startPage > 2) {
-                pageNumbers.push('...');
-            }
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
-            pageNumbers.push(i);
-        }
-
-        if (endPage < totalPages) {
-            if (endPage < totalPages - 1) {
-                pageNumbers.push('...');
-            }
-            pageNumbers.push(totalPages);
-        }
-
-        return pageNumbers;
-    };
-
-    const pageNumbers = generatePageNumbers();
+    const pageNumbers = useMemo(() => generatePageNumbers(currentPage, totalPages), [currentPage, totalPages]);
 
     return (
         <div className="flex flex-wrap justify-center items-center my-4">
@@ -39,6 +41,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                 className="mx-1 px-3 py-1 bg-gray-300 text-gray-800 rounded disabled:opacity-50"
+                aria-label="Previous Page"
             >
                 上一页
             </button>
@@ -49,6 +52,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                     disabled={page === '...'}
                     className={`mx-1 px-3 py-1 rounded ${currentPage === page ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
                         } ${page === '...' ? 'cursor-default' : ''}`}
+                    aria-disabled={page === '...'}
                 >
                     {page}
                 </button>
@@ -57,6 +61,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="mx-1 px-3 py-1 bg-gray-300 text-gray-800 rounded disabled:opacity-50"
+                aria-label="Next Page"
             >
                 下一页
             </button>
@@ -64,4 +69,4 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     );
 };
 
-export default Pagination;
+export default React.memo(Pagination);

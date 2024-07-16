@@ -10,7 +10,6 @@ const Home = () => {
         return <div>Error: {error.message}</div>
     }
     const { poems } = data;
-    console.log(data);
     return (
         <div className='flex flex-col mx-auto justify-center items-center'>
             <h1 className='mt-10 text-bold text-neutral-900 text-2xl lg:text-4xl'>唐宋经典诗词 - 随机 10 首 </h1>
