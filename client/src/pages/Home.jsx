@@ -1,8 +1,7 @@
-import { fetchRandomPoems } from '../api/poem.js'
-import { useQuery } from 'react-query'
 import PoemCard from '../components/Poem/PoemCard.jsx';
+import useFetchRandomPoems from '../hooks/useFetchRandomPoems.js';
 const Home = () => {
-    const { data, error, isLoading } = useQuery(["random-poems"], fetchRandomPoems);
+    const { data, error, isLoading } = useFetchRandomPoems();
     if (isLoading) {
         return <div>Loading...</div>
     }

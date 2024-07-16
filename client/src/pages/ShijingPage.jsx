@@ -1,16 +1,13 @@
 import { useState } from 'react';
-import { fetchShijing } from '../api/poem.js';
-import { useQuery } from 'react-query';
 import PoemCard from '../components/Poem/PoemCard.jsx';
 import Pagination from '../components/Pagination/Pagination.jsx';
+import useFetchShijing from '../hooks/useFetchShijing.js';
 
 const ShijingPage = () => {
     const [page, setPage] = useState(1);
     const limit = 10;
 
-    const { data, error, isLoading } = useQuery(["shijing", page], () => fetchShijing(page, limit), {
-        keepPreviousData: true,
-    });
+    const { data, error, isLoading } = useFetchShijing(page, limit);
 
     const handlePageChange = (newPage) => {
         setPage(newPage);

@@ -1,19 +1,12 @@
 import { useState } from 'react';
-import { useQuery } from 'react-query';
 import SearchPoetryPage from './SearchPoetryPage.jsx';
-import { searchPoetry } from '../../../api/poem.js';
 import Pagination from '../../../components/Pagination/Pagination.jsx';
+import useSearchPoetry from '../../../hooks/useSearchPoetry.js';
 
 const PoetrySearch = () => {
     const [queryParams, setQueryParams] = useState({ author: '', title: '', page: 1 });
 
-    const { data, error, isLoading } = useQuery(
-        ["search-poetry", queryParams],
-        () => searchPoetry({ ...queryParams }),
-        {
-            keepPreviousData: true,
-        }
-    );
+    const { data, error, isLoading } = useSearchPoetry(queryParams);
 
     const handleSearch = (newQueryParams) => {
         setQueryParams({ ...newQueryParams, page: 1 });
