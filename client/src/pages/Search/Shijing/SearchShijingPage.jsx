@@ -1,4 +1,4 @@
-import PoemCard from "../../../components/Poem/PoemCard";
+import PoemList from "../../../components/Poem/PoemList";
 
 const SearchShijingPage = ({ queryParams, onSearch, data }) => {
     const handleSearch = (event) => {
@@ -32,11 +32,7 @@ const SearchShijingPage = ({ queryParams, onSearch, data }) => {
                 </div>
                 <button type='submit' className='p-2 bg-blue-500 text-white rounded'>搜索</button>
             </form>
-            <div className="flex flex-col items-center w-full max-w-2xl justify-center min-h-screen py-4">
-                {poems.map((poem) => (
-                    <PoemCard key={poem._id} poem={poem} type={"shijing"} className="mb-4" />
-                ))}
-            </div>
+            <PoemList poems={poems} type="shijing" />
         </div>
     );
 };

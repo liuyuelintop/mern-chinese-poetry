@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import PoemCard from '../components/Poem/PoemCard.jsx';
 import Pagination from '../components/Pagination/Pagination.jsx';
 import useFetchShijing from '../hooks/useFetchShijing.js';
+import PoemList from '../components/Poem/PoemList.jsx';
 
 const ShijingPage = () => {
     const [page, setPage] = useState(1);
@@ -26,11 +26,7 @@ const ShijingPage = () => {
     return (
         <div className='flex flex-col mx-auto justify-center items-center'>
             <h1 className='mt-10 text-bold text-neutral-900 text-2xl lg:text-4xl'>诗经</h1>
-            <div className="flex flex-col items-center w-full max-w-2xl justify-center min-h-screen py-4">
-                {poems.map((poem) => (
-                    <PoemCard key={poem._id} poem={poem} type={"shijing"} className="mb-4" />
-                ))}
-            </div>
+            <PoemList poems={poems} type="shijing" />
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         </div>
     );

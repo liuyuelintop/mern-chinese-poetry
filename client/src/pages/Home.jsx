@@ -1,4 +1,4 @@
-import PoemCard from '../components/Poem/PoemCard.jsx';
+import PoemList from '../components/Poem/PoemList.jsx';
 import useFetchRandomPoems from '../hooks/useFetchRandomPoems.js';
 const Home = () => {
     const { data, error, isLoading } = useFetchRandomPoems();
@@ -12,11 +12,7 @@ const Home = () => {
     return (
         <div className='flex flex-col mx-auto justify-center items-center'>
             <h1 className='mt-10 text-bold text-neutral-900 text-2xl lg:text-4xl'>唐宋经典诗词 - 随机 10 首 </h1>
-            <div className="flex flex-col items-center w-full max-w-2xl justify-center min-h-screen py-4">
-                {poems.map((poem) => (
-                    <PoemCard key={poem._id} poem={poem} type={"poetry"} className="mb-4" />
-                ))}
-            </div>
+            <PoemList poems={poems} type="poetry" />
         </div>
 
     )
