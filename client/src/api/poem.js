@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // API 基础 URL
-const API_BASE_URL = "http://localhost:5001/api";
+const API_BASE_URL = "http://localhost:3000/api";
 
 // 通用的 fetch 函数，用于获取诗词数据
 // @param {string} endpoint - API 端点

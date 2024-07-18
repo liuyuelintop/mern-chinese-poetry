@@ -10,7 +10,6 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-console.log("PORT: " + port);
 const corsOptions = {
   origin: "http://localhost:5173", // 允许的前端地址
   methods: "GET,POST,PUT,DELETE",
