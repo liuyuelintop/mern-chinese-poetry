@@ -6,7 +6,7 @@ const About = () => {
                 这是一个关于中国古诗词的网站。我致力于传播和分享中国古代文化，通过这个网站，您可以浏览和搜索唐、宋、元、明、清等各个朝代的经典诗词。希望您能在这里找到喜爱的作品，并感受到古诗词的美。
             </p>
             <p className="text-lg text-gray-700 max-w-prose mb-4">
-                处于对中国古诗词的喜爱以及对传统文化的传播动机，我创建了这个小项目。特别鸣谢
+                出于对中国古诗词的喜爱以及对传统文化的传播，我创建了这个小项目。特别鸣谢
                 <a href="https://github.com/chinese-poetry/chinese-poetry" className="text-blue-500 hover:underline m-1">
                     chinese-poetry
                 </a>

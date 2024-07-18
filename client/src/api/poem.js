@@ -29,7 +29,7 @@ export const fetchPoems = async (endpoint, page = 1) => {
 // @param {number} limit - 每页显示的数量，默认为 10
 // @returns {Promise<object>} - 返回包含唐诗三百首数据的 Promise 对象
 export const fetchTang300Poems = async (page = 1, limit = 10) => {
-  return fetchData("poems/tang-300", { page, limit });
+  return fetchData("poems/dynasty/tang", { page, limit });
 };
 
 // 获取宋词三百首的函数，可以指定页码和每页数量
@@ -37,7 +37,7 @@ export const fetchTang300Poems = async (page = 1, limit = 10) => {
 // @param {number} limit - 每页显示的数量，默认为 10
 // @returns {Promise<object>} - 返回包含宋词三百首数据的 Promise 对象
 export const fetchSong300Poems = async (page = 1, limit = 10) => {
-  return fetchData("poems/song-300", { page, limit });
+  return fetchData("poems/dynasty/song", { page, limit });
 };
 
 // 获取诗经的函数，可以指定页码和每页数量
