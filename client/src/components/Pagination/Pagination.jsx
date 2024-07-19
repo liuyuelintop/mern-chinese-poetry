@@ -50,7 +50,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                     key={index}
                     onClick={() => handlePageChange(page)}
                     disabled={page === '...'}
-                    className={`mx-1 px-3 py-1 rounded ${currentPage === page ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
+                    className={`mx-1 my-2 px-3 py-1 rounded ${currentPage === page ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
                         } ${page === '...' ? 'cursor-default' : ''}`}
                     aria-disabled={page === '...'}
                 >
