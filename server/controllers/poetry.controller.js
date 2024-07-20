@@ -20,7 +20,8 @@ export const getPoemsByDynasty = asyncHandler(async (req, res) => {
   const dynasty = req.params.dynasty;
   const poems = await Poetry.find({ dynasty })
     .skip((page - 1) * limit)
-    .limit(limit);
+    .limit(limit)
+    .sort({ like: -1 });
   const totalPoems = await Poetry.countDocuments({ dynasty });
   res.json({
     poems,

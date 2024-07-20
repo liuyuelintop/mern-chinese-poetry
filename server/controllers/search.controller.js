@@ -44,7 +44,8 @@ export const searchPoetry = asyncHandler(async (req, res) => {
   const totalPoems = await Poetry.countDocuments(query);
   const poems = await Poetry.find(query)
     .skip((page - 1) * limit)
-    .limit(limit);
+    .limit(limit)
+    .sort({ like: -1 });
 
   res.json({
     poems,
@@ -67,7 +68,8 @@ export const searchShijing = asyncHandler(async (req, res) => {
   const totalPoems = await Shijing.countDocuments(query);
   const poems = await Shijing.find(query)
     .skip((page - 1) * limit)
-    .limit(limit);
+    .limit(limit)
+    .sort({ like: -1 });
 
   res.json({
     poems,

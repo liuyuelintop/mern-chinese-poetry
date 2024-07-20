@@ -12,7 +12,8 @@ export const getAllShijingPoems = asyncHandler(async (req, res) => {
 
   const shijingPoems = await Shijing.find()
     .skip((page - 1) * limit)
-    .limit(limit);
+    .limit(limit)
+    .sort({ like: -1 });
   const totalPoems = await Shijing.countDocuments();
 
   res.json({
