@@ -75,3 +75,8 @@ export const likePoem = async (id) => {
   const response = await axios.post(`${API_BASE_URL}/poems/like/${id}`);
   return response.data;
 };
+
+export const likeShijing = async (id) => {
+  const response = await axios.post(`${API_BASE_URL}/shijing/like/${id}`);
+  return response.data;
+};

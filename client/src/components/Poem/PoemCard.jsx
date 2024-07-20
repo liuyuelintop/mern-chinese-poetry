@@ -1,6 +1,12 @@
 import { BiLike } from "react-icons/bi";
+import useLikeItem from "../../hooks/useLikeItem";
 
 const PoemCard = ({ poem, type }) => {
+    const { mutate: likeItem } = useLikeItem();
+
+    const handleLike = () => {
+        likeItem({ id: poem._id, type });
+    };
 
     return (
         <div className="max-w-xl w-full my-4">
@@ -30,7 +36,10 @@ const PoemCard = ({ poem, type }) => {
                         </p>
                     ))}
                 </div>
-                <button className="w-24 flex justify-center items-center py-2 bg-green-200 text-neutral-700 hover:text-white rounded-lg hover:bg-green-700">
+                <button
+                    onClick={handleLike}
+                    className="w-24 flex justify-center items-center py-2 bg-green-200 text-neutral-700 hover:text-white rounded-lg hover:bg-green-700"
+                >
                     <BiLike className='mr-2' /> {poem.like}
                 </button>
             </div>
