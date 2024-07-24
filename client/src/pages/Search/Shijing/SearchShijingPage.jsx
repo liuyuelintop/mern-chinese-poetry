@@ -17,7 +17,7 @@ const SearchShijingPage = ({ queryParams, onSearch, data }) => {
     return (
         <div className='flex flex-col mx-auto justify-center items-center'>
             <h1 className='mt-10 text-bold text-neutral-900 text-2xl lg:text-4xl'>搜索诗经</h1>
-            <form onSubmit={handleSearch} className='flex flex-col mx-auto w-full max-w-2xl mb-4'>
+            <form onSubmit={handleSearch} className='flex flex-col mx-auto w-full max-w-md mb-4'>
                 <div className='flex flex-col mb-4'>
                     <label htmlFor='title' className='mb-2'>标题</label>
                     <input type='text' id='title' name='title' className='p-2 border border-gray-300 rounded' />
